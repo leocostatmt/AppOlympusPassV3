@@ -1,7 +1,7 @@
 # OlympusPassV2
 
-A new Flutter project.
+An App for Gym Start-ups developed with the objective to become more practice and easy the access of the gyms and have your training everytime avaiable online.
 
-## Getting Started
+## About This Project
 
-FlutterFlow projects are built to run on the Flutter _stable_ release.
+This Project have been developed by 6 Students of FIEB ITB, for the Undergraduate Final Project, a different idea for gym startups begin to digitalize the services.

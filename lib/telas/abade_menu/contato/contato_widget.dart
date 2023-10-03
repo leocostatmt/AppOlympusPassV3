@@ -394,11 +394,11 @@ class _ContatoWidgetState extends State<ContatoWidget> {
                   onPressed: () async {
                     await launchUrl(Uri(
                         scheme: 'mailto',
-                        path: _model.textController1.text,
+                        path: 'olympuspass@contato.com',
                         query: {
                           'subject': _model.textController3.text,
                           'body':
-                              'Olá, Somos da Olympus Pass, Logo Entraremos Em Contato Para Ajudar.',
+                              'Olá, Sou Aluno Olympus Pass, Estou Entrando em Contato, Preciso de Ajudar.',
                         }
                             .entries
                             .map((MapEntry<String, String> e) =>
