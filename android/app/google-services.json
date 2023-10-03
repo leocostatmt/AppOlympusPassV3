@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "554551833476",
+    "project_id": "olympus-pass-v2",
+    "storage_bucket": "olympus-pass-v2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554551833476:android:53fc3c1987ec074e49a3d1",
+        "android_client_info": {
+          "package_name": "com.flutterflow.OlympusPass"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiw7jXubKd-Xp3RRlqOBJ1FFomv6_BgIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554551833476:android:ba1c98b7c27481e949a3d1",
+        "android_client_info": {
+          "package_name": "olympus.passv2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiw7jXubKd-Xp3RRlqOBJ1FFomv6_BgIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
