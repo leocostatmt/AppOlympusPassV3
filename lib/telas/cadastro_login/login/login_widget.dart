@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'login_controller.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -258,14 +259,24 @@ class _LoginWidgetState extends State<LoginWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 70.0, 0.0, 0.0),
                               child: FFButtonWidget(
+                                //onPressed: () async {
+                                // _model.apiResultcpb = await LoginCall.call(
+                                // email: _model.textController1.text,
+                                // password: _model.textController2.text,
+                                // );
+
                                 onPressed: () async {
-                                  _model.apiResultcpb = await LoginCall.call(
+                                  // TODO - LOGIN
+                                  await (LoginController.loginUsuario(
                                     email: _model.textController1.text,
-                                    password: _model.textController2.text,
-                                  );
+                                    senha: _model.textController2.text,
+                                  ));
+                                  //context.pushNamed('TelaInicialOlympusPass');
+                                  // Toast.show("Erro Login - Usuário ou senha inválida.", duration: Toast.lengthShort, gravity: Toast.bottom);
+
                                   if ((_model.apiResultcpb?.succeeded ??
                                       true)) {
-                                    context.pushNamed('Menu');
+                                    context.pushNamed('TelaInicialOlympusPass');
                                   } else {
                                     await showDialog(
                                       context: context,
