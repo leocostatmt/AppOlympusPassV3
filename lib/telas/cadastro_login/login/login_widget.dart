@@ -49,13 +49,16 @@ class _LoginWidgetState extends State<LoginWidget> {
 
     // ignore: unrelated_type_equality_checks
     if (sucesso == true)
-      Navigator.pushNamed(context, "/TelaInicialOlympusPass");
+      context.pushNamed('TelaInicialOlympusPass');
+    //Navigator.pushNamed(context, "TelaInicialOlympusPass");
     else
       print('erro ao logar');
   }
 
   @override
   Widget build(BuildContext context) {
+    LoginController loginController = new LoginController();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF0C0D0F),
