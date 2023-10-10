@@ -47,6 +47,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     var sucesso = loginController.loginUsuario(
         email: _model.textController1.text, senha: _model.textController2.text);
 
+    // ignore: unrelated_type_equality_checks
     if (sucesso == true)
       Navigator.pushNamed(context, "/TelaInicialOlympusPass");
     else
