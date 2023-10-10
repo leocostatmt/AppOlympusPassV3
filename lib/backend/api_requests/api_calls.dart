@@ -43,13 +43,13 @@ class MapGymRouteCall {
 
 class LoginCall {
   static Future<ApiCallResponse> call({
-    String? email = '',
-    String? password = '',
+    String? email = 'leonardocaetanocosta2005@gmail.com',
+    String? password = 'rednose435',
   }) {
     return ApiManager.instance.makeApiCall(
       callName: 'Login',
-      apiUrl: '/login',
-      callType: ApiCallType.GET,
+      apiUrl: 'http://localhost:8080/api/usuario/login',
+      callType: ApiCallType.POST,
       headers: {},
       params: {},
       returnBody: true,

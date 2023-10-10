@@ -12,7 +12,7 @@ class LoginController {
         <String, String>{"email": email.toString(), "senha": senha.toString()});
     try {
       dynamic response = await dio.post(
-          'http://localhost:8080/api/lifetree/funcionario/logarApi',
+          'http://172.20.10.4:8080/api/usuario/login',
           options: Options(
               contentType: 'application/json; charset=UTF-8',
               headers: {'Access-Control-Allow-Origin': '*'}),

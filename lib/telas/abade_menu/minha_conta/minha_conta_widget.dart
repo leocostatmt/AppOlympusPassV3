@@ -366,7 +366,7 @@ class _MinhaContaWidgetState extends State<MinhaContaWidget>
                                             transitionType:
                                                 PageTransitionType.leftToRight,
                                             duration:
-                                                Duration(milliseconds: 300),
+                                                Duration(milliseconds: 600),
                                           ),
                                         },
                                       );
@@ -417,7 +417,7 @@ class _MinhaContaWidgetState extends State<MinhaContaWidget>
                                                             PageTransitionType
                                                                 .leftToRight,
                                                         duration: Duration(
-                                                            milliseconds: 300),
+                                                            milliseconds: 600),
                                                       ),
                                                     },
                                                   );
@@ -471,7 +471,7 @@ class _MinhaContaWidgetState extends State<MinhaContaWidget>
                                             transitionType:
                                                 PageTransitionType.leftToRight,
                                             duration:
-                                                Duration(milliseconds: 300),
+                                                Duration(milliseconds: 600),
                                           ),
                                         },
                                       );
@@ -552,7 +552,7 @@ class _MinhaContaWidgetState extends State<MinhaContaWidget>
                                             transitionType:
                                                 PageTransitionType.leftToRight,
                                             duration:
-                                                Duration(milliseconds: 300),
+                                                Duration(milliseconds: 600),
                                           ),
                                         },
                                       );

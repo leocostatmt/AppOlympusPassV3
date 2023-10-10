@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:toast/toast.dart';
 import 'login_controller.dart';
 import 'login_model.dart';
 export 'login_model.dart';
@@ -20,6 +21,8 @@ class LoginWidget extends StatefulWidget {
 class _LoginWidgetState extends State<LoginWidget> {
   late LoginModel _model;
 
+  final loginController = LoginController();
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -29,7 +32,8 @@ class _LoginWidgetState extends State<LoginWidget> {
 
     _model.textController1 ??= TextEditingController();
     _model.textController2 ??= TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    ToastContext().init(context);
+    // WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -37,6 +41,16 @@ class _LoginWidgetState extends State<LoginWidget> {
     _model.dispose();
 
     super.dispose();
+  }
+
+  void logar(BuildContext context) {
+    var sucesso = loginController.loginUsuario(
+        email: _model.textController1.text, senha: _model.textController2.text);
+
+    if (sucesso == true)
+      Navigator.pushNamed(context, "/TelaInicialOlympusPass");
+    else
+      print('erro ao logar');
   }
 
   @override
@@ -259,42 +273,45 @@ class _LoginWidgetState extends State<LoginWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 70.0, 0.0, 0.0),
                               child: FFButtonWidget(
-                                //onPressed: () async {
-                                // _model.apiResultcpb = await LoginCall.call(
-                                // email: _model.textController1.text,
-                                // password: _model.textController2.text,
-                                // );
-
                                 onPressed: () async {
-                                  // TODO - LOGIN
-                                  await (LoginController.loginUsuario(
-                                    email: _model.textController1.text,
-                                    senha: _model.textController2.text,
-                                  ));
-                                  //context.pushNamed('TelaInicialOlympusPass');
-                                  // Toast.show("Erro Login - Usuário ou senha inválida.", duration: Toast.lengthShort, gravity: Toast.bottom);
-
-                                  if ((_model.apiResultcpb?.succeeded ??
-                                      true)) {
-                                    context.pushNamed('TelaInicialOlympusPass');
-                                  } else {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('Login Ero'),
-                                          content: Text('Erro ao logar'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  }
+                                  logar(context);
+                                  // _model.apiResultcpb = await LoginCall.call(
+                                  //   email: _model.textController1.text,
+                                  //   password: _model.textController2.text,
+                                  // );
+                                  // () async {
+                                  //   //TODO - LOGIN
+                                  //   await (loginController.loginUsuario(
+                                  //           email: _model.textController1.text,
+                                  //           senha: _model.textController2.text))
+                                  //       ? context
+                                  //           .pushNamed('TelaInicialOlympusPass')
+                                  //       : Toast.show(
+                                  //           "Erro Login - Usuário ou senha inválida.",
+                                  //           duration: Toast.lengthShort,
+                                  //           gravity: Toast.bottom);
+                                  // };
+                                  // if ((_model.apiResultcpb?.succeeded ??
+                                  //     true)) {
+                                  //   context.pushNamed('TelaInicialOlympusPass');
+                                  // } else {
+                                  //   await showDialog(
+                                  //     context: context,
+                                  //     builder: (alertDialogContext) {
+                                  //       return AlertDialog(
+                                  //         title: Text('Erro ao Logar'),
+                                  //         content: Text('Tente Novamente'),
+                                  //         actions: [
+                                  //           TextButton(
+                                  //             onPressed: () => Navigator.pop(
+                                  //                 alertDialogContext),
+                                  //             child: Text('Ok'),
+                                  //           ),
+                                  //         ],
+                                  //       );
+                                  //     },
+                                  //   );
+                                  // }
 
                                   setState(() {});
                                 },
