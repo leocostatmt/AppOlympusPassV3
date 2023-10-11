@@ -46,7 +46,6 @@ class _LoginWidgetState extends State<LoginWidget> {
   void logar(BuildContext context) {
     var sucesso = loginController.loginUsuario(
         email: _model.textController1.text, senha: _model.textController2.text);
-
     // ignore: unrelated_type_equality_checks
     if (sucesso == true)
       context.pushNamed('TelaInicialOlympusPass');
@@ -57,8 +56,6 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    LoginController loginController = new LoginController();
-
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF0C0D0F),
@@ -278,23 +275,23 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   0.0, 70.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  logar(context);
+                                  //logar(context);
                                   // _model.apiResultcpb = await LoginCall.call(
                                   //   email: _model.textController1.text,
                                   //   password: _model.textController2.text,
                                   // );
-                                  // () async {
-                                  //   //TODO - LOGIN
-                                  //   await (loginController.loginUsuario(
-                                  //           email: _model.textController1.text,
-                                  //           senha: _model.textController2.text))
-                                  //       ? context
-                                  //           .pushNamed('TelaInicialOlympusPass')
-                                  //       : Toast.show(
-                                  //           "Erro Login - Usuário ou senha inválida.",
-                                  //           duration: Toast.lengthShort,
-                                  //           gravity: Toast.bottom);
-                                  // };
+                                  {
+                                    //TODO - LOGIN
+                                    await (loginController.loginUsuario(
+                                            email: _model.textController1.text,
+                                            senha: _model.textController2.text))
+                                        ? context
+                                            .pushNamed('TelaInicialOlympusPass')
+                                        : Toast.show(
+                                            "Erro Login - Usuário ou senha inválida.",
+                                            duration: Toast.lengthShort,
+                                            gravity: Toast.bottom);
+                                  }
                                   // if ((_model.apiResultcpb?.succeeded ??
                                   //     true)) {
                                   //   context.pushNamed('TelaInicialOlympusPass');

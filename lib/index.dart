@@ -1,5 +1,5 @@
 // Export pages
-export '/telas/abade_menu/meus_treinos/meus_treinos_widget.dart'
+export 'telas/abade_menu/minha_conta/meus_treinos/meus_treinos_widget.dart'
     show MeusTreinosWidget;
 export '/telas/cadastro_login/inicio/inicio_widget.dart' show InicioWidget;
 export '/telas/cadastro_login/login/login_widget.dart' show LoginWidget;

@@ -397,8 +397,7 @@ class _ContatoWidgetState extends State<ContatoWidget> {
                         path: 'olympuspass@contato.com',
                         query: {
                           'subject': _model.textController3.text,
-                          'body':
-                              'Olá, Sou Aluno Olympus Pass, Estou Entrando em Contato, Preciso de Ajudar.',
+                          'body': _model.textController4.text,
                         }
                             .entries
                             .map((MapEntry<String, String> e) =>
