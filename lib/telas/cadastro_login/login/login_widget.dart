@@ -287,11 +287,30 @@ class _LoginWidgetState extends State<LoginWidget> {
                                             senha: _model.textController2.text))
                                         ? context
                                             .pushNamed('TelaInicialOlympusPass')
-                                        : Toast.show(
-                                            "Erro Login - Usuário ou senha inválida.",
-                                            duration: Toast.lengthShort,
-                                            gravity: Toast.bottom);
+                                        : showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                title: Text('Erro ao Logar'),
+                                                content:
+                                                    Text('Tente Novamente'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            });
                                   }
+
+                                  //Toast.show(
+                                  //  "Erro Login - Usuário ou senha inválida.",
+                                  // duration: Toast.lengthShort,
+                                  // gravity: Toast.bottom);
+
                                   // if ((_model.apiResultcpb?.succeeded ??
                                   //     true)) {
                                   //   context.pushNamed('TelaInicialOlympusPass');
