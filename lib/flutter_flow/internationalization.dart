@@ -226,11 +226,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'zr2vqnmg': {
-      'pt': 'Please fill in a valid email address...',
+      'pt': 'Por favor, Insira um email válido...',
       'en': '',
     },
     'b2tha1ij': {
-      'pt': 'That password doesn\'t match.',
+      'pt': 'Senha Inválida ou Indevidamente Digitada',
       'en': '',
     },
     'e9q7a6qe': {
@@ -467,7 +467,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'v9smu92q': {
-      'pt': 'Alterar Senha',
+      'pt': 'Localização Academia',
       'en': '',
     },
     '5odpmtbp': {

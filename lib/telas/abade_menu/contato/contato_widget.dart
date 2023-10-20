@@ -396,7 +396,10 @@ class _ContatoWidgetState extends State<ContatoWidget> {
                         scheme: 'mailto',
                         path: 'olympuspass@contato.com',
                         query: {
-                          'subject': _model.textController3.text,
+                          'subject': "Olá, me chamo " +
+                              _model.textController2.text +
+                              ", sou aluno da Olympus Pass, e preciso de suporte, " +
+                              _model.textController3.text,
                           'body': _model.textController4.text,
                         }
                             .entries

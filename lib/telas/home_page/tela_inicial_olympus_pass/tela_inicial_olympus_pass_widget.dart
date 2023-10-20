@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -30,12 +31,30 @@ class _TelaInicialOlympusPassWidgetState
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  int contador = 0;
+
+  _loadCounter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      contador = prefs.getInt('contador') ?? 0;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
+    _loadCounter();
     _model = createModel(context, () => TelaInicialOlympusPassModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  _incrementCounter(bool bool) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      contador++;
+      prefs.setInt('contador', contador);
+    });
   }
 
   @override
@@ -220,26 +239,27 @@ class _TelaInicialOlympusPassWidgetState
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 0.0),
                                                 child: Text(
-                                                  formatNumber(
-                                                    random_data.randomInteger(
-                                                        0, 99),
-                                                    formatType:
-                                                        FormatType.custom,
-                                                    format: '0',
-                                                    locale: '',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .displaySmall
-                                                      .override(
-                                                        fontFamily: 'Outfit',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .white,
-                                                      ),
-                                                ),
+                                                    ('Check-ins: $contador')
+                                                    // formatNumber(
+                                                    // random_data.randomInteger(
+                                                    //   0, 99),
+                                                    // formatType:
+                                                    //   FormatType.custom,
+                                                    // format: '0',
+                                                    // locale: '',
+                                                    ),
+                                                //  style: FlutterFlowTheme.of(
+                                                //       context)
+                                                //   .displaySmall
+                                                //   .override(
+                                                //     fontFamily: 'Outfit',
+                                                //     color:
+                                                //     FlutterFlowTheme.of(
+                                                //             context)
+                                                //      .white,
                                               ),
+                                              // ),
+                                              // ),
                                             ],
                                           ),
                                         ),
@@ -416,29 +436,33 @@ class _TelaInicialOlympusPassWidgetState
                         ),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            _model.apiResultp0p =
-                                await CheckinRequestCall.call();
-                            if ((_model.apiResultp0p?.jsonBody ?? '')) {
-                              context.pushNamed('SucessoCheckin');
-                            } else {
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return AlertDialog(
-                                    title: Text('Erro ao Realizar Checkin'),
-                                    content: Text(
-                                        'Ocorreu um erro ao realizar checkin, tente novamente.'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            }
+                            context.pushNamed('SucessoCheckin');
+                            setState(() async {
+                              //contador++;
+                              if (_incrementCounter(false)) {
+                                context.pushNamed('SucessoCheckin');
+                              } else {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: Text('Erro ao Realizar Checkin'),
+                                      content: Text(
+                                          'Ocorreu um erro ao realizar checkin, tente novamente.'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              }
+                            });
+                            // _model.apiResultp0p =
+                            //   await CheckinRequestCall.call();
 
                             setState(() {});
                           },
@@ -783,60 +807,6 @@ class _TelaInicialOlympusPassWidgetState
                                 ),
                               ),
                             ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 10.0, 30.0),
-                    child: Container(
-                      width: 370.0,
-                      height: 230.0,
-                      child: FlutterFlowBarChart(
-                        barData: [
-                          FFBarChartData(
-                            yData: List.generate(
-                                random_data.randomInteger(0, 0),
-                                (index) => random_data.randomInteger(0, 10)),
-                            color: Color(0xFF09AD35),
-                          )
-                        ],
-                        xLabels: List.generate(random_data.randomInteger(0, 0),
-                                (index) => random_data.randomInteger(0, 10))
-                            .map((e) => e.toString())
-                            .toList(),
-                        barWidth: 40.0,
-                        barBorderRadius: BorderRadius.circular(8.0),
-                        groupSpace: 20.0,
-                        chartStylingInfo: ChartStylingInfo(
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          showBorder: false,
-                        ),
-                        axisBounds: AxisBounds(),
-                        xAxisLabelInfo: AxisLabelInfo(
-                          title: FFLocalizations.of(context).getText(
-                            'fmd7mxax' /* Dias da Semana */,
-                          ),
-                          titleTextStyle: GoogleFonts.getFont(
-                            'Rubik',
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14.0,
-                          ),
-                        ),
-                        yAxisLabelInfo: AxisLabelInfo(
-                          title: FFLocalizations.of(context).getText(
-                            '541wbgjg' /* Checkins */,
-                          ),
-                          titleTextStyle: GoogleFonts.getFont(
-                            'Rubik',
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14.0,
                           ),
                         ),
                       ),

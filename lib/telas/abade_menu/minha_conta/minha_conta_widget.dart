@@ -1,3 +1,5 @@
+import 'package:olympus_pass_v2/telas/abade_menu/minha_conta/minha_conta_controller.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -11,7 +13,9 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+// ignore: unnecessary_import
 import 'minha_conta_model.dart';
+
 export 'minha_conta_model.dart';
 
 class MinhaContaWidget extends StatefulWidget {
@@ -30,6 +34,8 @@ class MinhaContaWidget extends StatefulWidget {
 class _MinhaContaWidgetState extends State<MinhaContaWidget>
     with TickerProviderStateMixin {
   late MinhaContaModel _model;
+
+  final minhaContaController = MinhaContaController();
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -299,25 +305,30 @@ class _MinhaContaWidgetState extends State<MinhaContaWidget>
                                                         ),
                                               ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
-                                              child: Text(
-                                                currentUserEmail,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelLarge
-                                                        .override(
-                                                          fontFamily: 'Rubik',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          fontSize: 16.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                              ),
-                                            ),
+                                            // Padding(
+                                            // padding: EdgeInsetsDirectional
+                                            //  .fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                            // child: Text(
+                                            // (minhaContaController
+                                            //    .dadosUsuario(
+                                            //       nomeCompleto: "",
+                                            //      email: "",
+                                            //     idPlano: "",
+                                            //    foto: "")),
+                                            // style:
+                                            //  FlutterFlowTheme.of(context)
+                                            //   .labelLarge
+                                            //  .override(
+                                            //  fontFamily: 'Rubik',
+                                            // color: FlutterFlowTheme
+                                            //        .of(context)
+                                            //      .secondaryText,
+                                            //   fontSize: 16.0,
+                                            //     fontWeight:
+                                            //          FontWeight.w600,
+                                            //      ),
+                                            //  ),
+                                            //),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
@@ -464,7 +475,7 @@ class _MinhaContaWidgetState extends State<MinhaContaWidget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'RequisicaoEmail',
+                                        'LocalizacaoAcademia',
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
@@ -508,7 +519,7 @@ class _MinhaContaWidgetState extends State<MinhaContaWidget>
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'v9smu92q' /* Alterar Senha */,
+                                                  'v9smu92q' /* Localização Academia */,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)

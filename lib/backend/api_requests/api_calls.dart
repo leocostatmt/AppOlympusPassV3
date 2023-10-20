@@ -109,11 +109,12 @@ class CheckinRequestCall {
   static Future<ApiCallResponse> call() {
     final ffApiRequestBody = '''
 {
-  "checkin": "confirmar checkin"
+  "id": "3",  
+  "mensagens": "Check-in Enviado com Sucesso"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CheckinRequest',
-      apiUrl: 'https://rest.clicksend.com/v3',
+      apiUrl: 'http://localhost:8080/usuario/enviarMensagem',
       callType: ApiCallType.POST,
       headers: {},
       params: {},

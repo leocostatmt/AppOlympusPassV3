@@ -182,42 +182,42 @@ class _InicioWidgetState extends State<InicioWidget>
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 2.0, 0.0, 20.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  context.pushNamed('Cadastro');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  '8snixyv3' /* Cadastrar-se */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 250.0,
-                                  height: 80.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).white,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Rubik',
-                                        color: Color(0xFF09AD35),
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                  elevation: 3.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ).animateOnPageLoad(
-                                  animationsMap['buttonOnPageLoadAnimation1']!),
-                            ),
+                            // Padding(
+                            // padding: EdgeInsetsDirectional.fromSTEB(
+                            //   0.0, 2.0, 0.0, 20.0),
+                            // child: FFButtonWidget(
+                            // onPressed: () async {
+                            // context.pushNamed('Cadastro');
+                            // },
+                            // text: FFLocalizations.of(context).getText(
+                            // '8snixyv3' /* Cadastrar-se */,
+                            // ),
+                            // options: FFButtonOptions(
+                            // width: 250.0,
+                            // height: 80.0,
+                            // padding: EdgeInsetsDirectional.fromSTEB(
+                            //   0.0, 0.0, 0.0, 0.0),
+                            // iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            //   0.0, 0.0, 0.0, 0.0),
+                            // color: FlutterFlowTheme.of(context).white,
+                            // textStyle: FlutterFlowTheme.of(context)
+                            //  .titleSmall
+                            // .override(
+                            // fontFamily: 'Rubik',
+                            // color: Color(0xFF09AD35),
+                            // fontSize: 22.0,
+                            // fontWeight: FontWeight.w600,
+                            // ),
+                            // elevation: 3.0,
+                            // borderSide: BorderSide(
+                            // color: Colors.transparent,
+                            // width: 1.0,
+                            // ),
+                            // borderRadius: BorderRadius.circular(8.0),
+                            // ),
+                            //).animateOnPageLoad(
+                            //  animationsMap['buttonOnPageLoadAnimation1']!),
+                            // ),
                             FFButtonWidget(
                               onPressed: () async {
                                 context.pushNamed('Login');
