@@ -32,8 +32,8 @@ class _LoginWidgetState extends State<LoginWidget> {
 
     _model.textController1 ??= TextEditingController();
     _model.textController2 ??= TextEditingController();
-    ToastContext().init(context);
-    // WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+     ToastContext().init(context);
+     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
